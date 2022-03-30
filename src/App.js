@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Details from "./components/SmallCard/Details";
+import { Grid } from "@material-ui/core";
+import useStyles from "./styles";
+import Main from "./components/MainCard/Main";
 
-function App() {
+const App = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Grid
+        className={classes.grid}
+        container
+        spacing={0}
+        alignItems="center"
+        justify="center"
+        style={{ height: "100vh" }}
+      >
+        {/* container spacing le grid horizontal banayo */}
+        <Grid item xs={12} sm={3}>
+          <Details title="Income" />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Main />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Details title="Expense" />
+        </Grid>
+      </Grid>
+    </>
   );
-}
+};
 
 export default App;
