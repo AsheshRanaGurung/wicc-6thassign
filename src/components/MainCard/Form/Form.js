@@ -16,8 +16,6 @@ import {
   incomeCategories,
   expenseCategories,
 } from "../../../constants/category";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
 
 const initialValues = {
   amount: "",
@@ -25,10 +23,6 @@ const initialValues = {
   type: "Income",
   date: new Date(),
 };
-
-const validationSchema = Yup.object().shape({
-  amount: Yup.number().required(),
-});
 
 const FormikCreation = () => {
   const classes = useStyles();
@@ -55,66 +49,7 @@ const FormikCreation = () => {
     <>
       <Grid container spacing={2}>
         {/* dallae form vitra 2 ko padding deko jastae */}
-        {/* <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          enableReinitialize={true}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
-            console.log(JSON.stringify(values));
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            isSubmitting,
-          }) => (
-            <div className="content" style={{ width: "24rem" }}>
-              <Form style={{ paddingTop: "1rem" }}>
-                <Grid item xs={6}>
-                  <InputLabel> Amount:</InputLabel>
-                  <input
-                    className="form-control"
-                    name="amount"
-                    placeholder="Enter your amount "
-                    value={values.amount}
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                    onBlur={handleBlur}
-                  ></input>
-                  {errors.amount && touched.amount ? (
-                    <span style={{ color: "red" }}>{errors.amount}</span>
-                  ) : null}
-                </Grid>
-                <Grid item xs={6} style={{ paddingTop: "1rem" }}>
-                  <InputLabel>Type</InputLabel>
-                  <Select
-                    value={values.type}
-                    onChange={(e) =>
-                      setFormdata({ ...formdata, type: e.target.value })
-                    }
-                  >
-                    <MenuItem value="Income">Income</MenuItem>
-                    <MenuItem value="Expense">expense</MenuItem>
-                  </Select>
-                </Grid>
-                <br />
-                <button
-                  className="success"
-                  type="submit"
-                  disabled={isSubmitting === true}
-                >
-                  <div className="primary-btn text" style={{ color: "white" }}>
-                    {isSubmitting ? "submitting" : "Buy"}
-                  </div>
-                </button>
-              </Form>
-            </div>
-          )}
-        </Formik> */}
+
         <Grid item xs={6}>
           <FormControl fullWidth>
             <InputLabel>Type</InputLabel>

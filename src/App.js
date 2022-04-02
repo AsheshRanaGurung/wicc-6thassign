@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Details from "./components/SmallCard/Details";
-import { Grid } from "@material-ui/core";
+import React, { useEffect } from "react";
 import useStyles from "./styles";
-import Main from "./components/MainCard/Main";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
+
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+
+import Homescreen from "./Screens/Homescreen";
+import Login from "./components/SmallCard/Login";
 
 const style = {
   position: "absolute",
@@ -28,10 +31,12 @@ const App = () => {
     { id: 1, name: "ContextAPI" },
     { id: 2, name: "formvalidation" },
     { id: 3, name: "react-chartjs" },
-    { id: 4, name: "material-ui" },
-    { id: 5, name: "Toastify" },
-    { id: 6, name: "modal" },
-    { id: 7, name: "uuid" },
+    { id: 4, name: "React-router-6" },
+    { id: 5, name: "react-table" },
+    { id: 6, name: "material-ui" },
+    { id: 7, name: "Toastify" },
+    { id: 8, name: "modal" },
+    { id: 9, name: "uuid" },
   ];
 
   const [open, setOpen] = React.useState(false);
@@ -69,33 +74,11 @@ const App = () => {
         closeOnClick
         rtl={false}
       />
-      {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Items added</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>body</Modal.Body>
+      <Routes>
+        <Route path="/table" element={<Login />} />
 
-        <Modal.Footer>foot</Modal.Footer>
-      </Modal> */}
-      <Grid
-        className={classes.grid}
-        container
-        spacing={0}
-        alignItems="center"
-        justifyContent="center"
-        style={{ height: "100vh" }}
-      >
-        {/* container spacing le grid horizontal banayo */}
-        <Grid item xs={12} sm={3}>
-          <Details title="Income" />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Main />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Details title="Expense" />
-        </Grid>
-      </Grid>
+        <Route path="/" element={<Homescreen />} />
+      </Routes>
     </>
   );
 };

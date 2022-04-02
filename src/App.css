@@ -1,0 +1,22 @@
+.button-primary{
+    width: 285px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(129, 179, 49);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.button-back{
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(129, 179, 49);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}

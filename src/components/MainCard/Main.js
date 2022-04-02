@@ -10,6 +10,7 @@ import {
 import useStyles from "./styles";
 import Form from "./Form/Form";
 import Lists from "./Lists/Lists";
+import { NavLink } from "react-router-dom";
 
 const Main = () => {
   const classes = useStyles();
@@ -28,6 +29,11 @@ const Main = () => {
 
           <Divider />
           <Form />
+        </CardContent>
+        <CardContent>
+          <NavLink to="/table">
+            <button className="button-primary">See More details</button>
+          </NavLink>
         </CardContent>
         <CardContent className={classes.CartContent}>
           <Grid>
