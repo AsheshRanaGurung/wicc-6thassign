@@ -26,7 +26,7 @@ const App = () => {
 
   const topic = [
     { id: 1, name: "ContextAPI" },
-    { id: 2, name: "formik" },
+    { id: 2, name: "formvalidation" },
     { id: 3, name: "react-chartjs" },
     { id: 4, name: "material-ui" },
     { id: 5, name: "Toastify" },
@@ -51,7 +51,7 @@ const App = () => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Topics covered in this project
+            Highlighted topic in this project
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <ul>
