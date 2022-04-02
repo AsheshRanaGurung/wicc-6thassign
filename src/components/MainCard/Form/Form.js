@@ -28,7 +28,7 @@ const Form = () => {
   const classes = useStyles();
   const [formdata, setFormdata] = useState(initialState);
 
-  const { addTransacation } = useContext(ExpenseTrackercontext);
+  const { addTransacation, transaction } = useContext(ExpenseTrackercontext);
 
   const createTransaction = () => {
     const transaction = {
@@ -37,6 +37,7 @@ const Form = () => {
       id: uniqueid(),
     };
     addTransacation(transaction);
+    localStorage.setItem("transaction", JSON.stringify(transaction));
 
     setFormdata(initialState);
   };

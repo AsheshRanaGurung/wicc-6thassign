@@ -8,12 +8,15 @@ import {
 } from "./constants/category";
 
 const useCustomhookTransaction = (title) => {
-  console.log(title);
+  // console.log(title);
+  //title "Income" ho ki  "Expense" ho ya aauxa
   resetCategories();
   const { transaction } = useContext(ExpenseTrackercontext);
-  console.log(transaction);
+  // console.log(transaction);
   const transactionsPerType = transaction.filter((t) => t.type === title);
-  console.log(transactionsPerType);
+  //hamele haleko data suppose 2ta income ra 1 expense ko xa vane,ya filter garne
+  //t.type Form.js bata pathako xu
+  // console.log(transactionsPerType);
   const total = transactionsPerType.reduce(
     (acc, currVal) => (acc += currVal.amount),
     0
@@ -22,8 +25,11 @@ const useCustomhookTransaction = (title) => {
 
   transactionsPerType.forEach((t) => {
     const category = categories.find((c) => c.type === t.category);
-
+    //category.js bata incomeCategories ho vane tya bata 1ta obj aauxa,viceversa
+    // console.log(category);
+    // console.log("$$$$$$$$$$$$$$$$$$$$$$$$$");
     if (category) category.amount += t.amount;
+    // {type: 'Gift aako', amount: 0, color: '#10ac6e'} yastp demo auxa,ya amount 0 ma add garne
   });
 
   const filteredCategories = categories.filter((sc) => sc.amount > 0);
@@ -37,8 +43,8 @@ const useCustomhookTransaction = (title) => {
     ],
     labels: filteredCategories.map((c) => c.type),
   };
-  console.log(total);
-  console.log(chartData);
+  // console.log(total);
+  // console.log(chartData);
 
   return { total, chartData };
 };

@@ -18,7 +18,7 @@ const Details = (props) => {
       <CardHeader title={title} />
       <CardContent>
         <Typography variant="h5">Rs.{total}</Typography>
-        <div className="control-doughnut" style={{ width: "350px" }}>
+        <div className="control-doughnut" style={{ width: "300px" }}>
           <Doughnut data={chartData} />
         </div>
       </CardContent>
